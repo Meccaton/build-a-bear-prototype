@@ -256,6 +256,52 @@ MonoBehaviour:
   row: 0
   col: 1
   plushType: purple
+  crossInput: {fileID: 75742633}
+--- !u!1 &75742631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75742632}
+  - component: {fileID: 75742633}
+  m_Layer: 0
+  m_Name: Cross Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &75742632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75742631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0307057, y: -0.6861117, z: -0.023413904}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &75742633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75742631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a586db972d2b4073a8f9aee7bee4a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossChecker: {fileID: 2143035199}
 --- !u!1 &135498307
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +439,7 @@ MonoBehaviour:
   row: 2
   col: 2
   plushType: light blue
+  crossInput: {fileID: 75742633}
 --- !u!1 &238673581
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +713,7 @@ MonoBehaviour:
   row: 0
   col: 0
   plushType: pink
+  crossInput: {fileID: 75742633}
 --- !u!1 &324456900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,6 +1396,7 @@ MonoBehaviour:
   row: 3
   col: 2
   plushType: light blue
+  crossInput: {fileID: 75742633}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,6 +1618,7 @@ MonoBehaviour:
   row: 3
   col: 3
   plushType: blue
+  crossInput: {fileID: 75742633}
 --- !u!1 &642969534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,6 +1892,7 @@ MonoBehaviour:
   row: 2
   col: 1
   plushType: purple
+  crossInput: {fileID: 75742633}
 --- !u!1 &711219909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2381,7 @@ MonoBehaviour:
   row: 1
   col: 2
   plushType: light blue
+  crossInput: {fileID: 75742633}
 --- !u!1 &741661812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,6 +2519,7 @@ MonoBehaviour:
   row: 3
   col: 0
   plushType: pink
+  crossInput: {fileID: 75742633}
 --- !u!1 &758195933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,6 +2657,7 @@ MonoBehaviour:
   row: 1
   col: 1
   plushType: purple
+  crossInput: {fileID: 75742633}
 --- !u!1 &902641780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,6 +2795,7 @@ MonoBehaviour:
   row: 2
   col: 0
   plushType: pink
+  crossInput: {fileID: 75742633}
 --- !u!1 &918822658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,6 +3186,7 @@ MonoBehaviour:
   row: 0
   col: 3
   plushType: blue
+  crossInput: {fileID: 75742633}
 --- !u!1 &1070549961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3404,6 +3460,7 @@ MonoBehaviour:
   row: 2
   col: 3
   plushType: blue
+  crossInput: {fileID: 75742633}
 --- !u!1 &1307019557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,6 +3734,7 @@ MonoBehaviour:
   row: 0
   col: 2
   plushType: light blue
+  crossInput: {fileID: 75742633}
 --- !u!1 &1361990392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4358,6 +4416,7 @@ MonoBehaviour:
   row: 1
   col: 3
   plushType: blue
+  crossInput: {fileID: 75742633}
 --- !u!1 &1841121632
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,6 +4826,7 @@ MonoBehaviour:
   row: 3
   col: 1
   plushType: purple
+  crossInput: {fileID: 75742633}
 --- !u!1 &1991690597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,6 +4964,7 @@ MonoBehaviour:
   row: 1
   col: 0
   plushType: pink
+  crossInput: {fileID: 75742633}
 --- !u!1 &2143035196
 GameObject:
   m_ObjectHideFlags: 0
@@ -4914,6 +4975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2143035198}
   - component: {fileID: 2143035197}
+  - component: {fileID: 2143035199}
   m_Layer: 0
   m_Name: Swap Manager
   m_TagString: Untagged
@@ -4948,6 +5010,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143035199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143035196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e03a24ee300645308dfc509b337c878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4957,3 +5031,4 @@ SceneRoots:
   - {fileID: 918822662}
   - {fileID: 725137497}
   - {fileID: 2143035198}
+  - {fileID: 75742632}
