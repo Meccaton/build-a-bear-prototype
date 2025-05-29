@@ -22,6 +22,7 @@ public class CrossController : MonoBehaviour
         // Wait for player to press X to cross the selected line
         if (Input.GetKeyDown(KeyCode.X))
         {
+            Debug.Log($"SelectedIsRow has value: {selectedIsRow.HasValue}, and SelectedIndex has value: {selectedIndex}");
             if (selectedIsRow.HasValue && selectedIndex >= 0)
             {
                 int crossIndex = crossChecker.TryCrossLine(selectedIsRow.Value, selectedIndex);

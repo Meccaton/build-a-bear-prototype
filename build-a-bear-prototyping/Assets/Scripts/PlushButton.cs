@@ -20,12 +20,14 @@ public class PlushButton : MonoBehaviour
 
     public void OnClick()
     {
-        //SwapManager.Instance.SelectPlush((Tile)this);
+        SwapManager.Instance.SelectPlush((Tile)this);
         crossInput.SetSelectedLine(true, row);
+        Debug.Log("Left Click successfuly registered");
     }
     
     public void OnRightClick()
     {
         crossInput.SetSelectedLine(false, col);
+        Debug.Log("Right Click successfuly registered");
     }
 }
