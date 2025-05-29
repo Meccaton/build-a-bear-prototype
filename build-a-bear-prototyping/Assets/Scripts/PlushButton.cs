@@ -6,6 +6,7 @@ public class PlushButton : MonoBehaviour
     public int row;
     public int col;
     public string plushType;
+    public CrossController crossInput; 
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class PlushButton : MonoBehaviour
     public void OnClick()
     {
         SwapManager.Instance.SelectPlush(this);
+        crossInput.SetSelectedLine(true, row);
     }
     
 }
