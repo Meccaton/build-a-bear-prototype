@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class CrossCheck : MonoBehaviour
@@ -17,31 +18,59 @@ public class CrossCheck : MonoBehaviour
             return -1;
         }
 
-        int numRows = grid.GetLength(0);
-        int numCols = grid.GetLength(1);
+        int width = grid.GetLength(0);
+        int height = grid.GetLength(1);
 
-        if (isRow && (index < 0 || index >= numRows)) return -1;
-        if (!isRow && (index < 0 || index >= numCols)) return -1;
+        if (isRow && (index < 0 || index >= height)) return -1;
+        if (!isRow && (index < 0 || index >= width)) return -1;
 
         int count = 0;
 
         if (isRow)
         {
-            for (int col = 0; col < numCols; col++)
+            for (int x = 0; x < width; x++)
             {
-                if (grid[index, col] != null) count++;
+                if (grid[x, index] != null) count++;
             }
 
             return count == 4 ? index : -1; 
         }
         else
         {
-            for (int row = 0; row < numRows; row++)
+            for (int y = 0; y < height; y++)
             {
-                if (grid[row, index] != null) count++;
+                if (grid[index, y] != null) count++;
             }
 
-            return count == 4 ? numRows + index : -1; 
+            return count == 4 ? width + index : -1; 
+        }
+    }
+
+    public void ExecuteCrossLine(bool isRow, int index)
+    {
+        if (grid == null)
+        {
+            return;
+        }
+
+        int width = grid.GetLength(0);
+        int height = grid.GetLength(1);
+
+        if (isRow)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                Board.Instance.ReplaceItemAt(x, index);
+            }
+            Debug.Log($"Crossed out row {index} and replaced with new tiles");
+        }
+        else
+        {
+            for (int y = 0; y < height; y++)
+            {
+                Board.Instance.ReplaceItemAt(index, y);
+            }
+            Debug.Log($"Crossed out column {index} and replaced with new tiles");
         }
     }
 

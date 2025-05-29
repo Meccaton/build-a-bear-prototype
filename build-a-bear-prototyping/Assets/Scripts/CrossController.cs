@@ -14,6 +14,7 @@ public class CrossController : MonoBehaviour
         selectedIsRow = isRow;
         selectedIndex = index;
         Debug.Log($"Selected line: {(isRow ? "Row" : "Col")} {index}");
+        HighlightSelectedLine(isRow, index);
     }
 
     void Update()
@@ -28,6 +29,8 @@ public class CrossController : MonoBehaviour
                 {
                     Debug.Log($"Cross success! Combination index: {crossIndex}");
                     // TODO: notify game manager, remove plushes, etc
+                    crossChecker.ExecuteCrossLine(selectedIsRow.Value, selectedIndex);
+                    ClearSelection();
                 }
                 else
                 {
@@ -39,5 +42,36 @@ public class CrossController : MonoBehaviour
                 Debug.Log("No line selected to cross.");
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ClearSelection();
+        }
+    }
+
+    private void ClearSelection()
+    {
+        selectedIsRow = null;
+        selectedIndex = -1;
+        Debug.Log("Selection Cleared");
+        RemoveHighlight();
+    }
+
+    private void HighlightSelectedLine(bool isRow, int index)
+    {
+        //TODO: add visualization for line selection
+    }
+
+    private void RemoveHighlight()
+    {
+        //TODO: remove visualization for line selection
+    }
+
+    public string GetCurrentSelection()
+    {
+        if ((selectedIsRow.HasValue) && selectedIndex >= 0)
+        {
+            return $"{(selectedIsRow.Value ? "Row" : "Column")} {selectedIndex}";
+        }
+        return "None";
     }
 }

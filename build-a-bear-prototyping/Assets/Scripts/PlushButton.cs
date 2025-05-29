@@ -12,7 +12,7 @@ public class PlushButton : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(OnClick);
     }
     
-    public void Init(int r, int c, string type)
+    public void Init(int r, int c)//, string type)
     {
         row = r;
         col = c;
@@ -20,8 +20,12 @@ public class PlushButton : MonoBehaviour
 
     public void OnClick()
     {
-        SwapManager.Instance.SelectPlush((Tile)this);
+        //SwapManager.Instance.SelectPlush((Tile)this);
         crossInput.SetSelectedLine(true, row);
     }
     
+    public void OnRightClick()
+    {
+        crossInput.SetSelectedLine(false, col);
+    }
 }
