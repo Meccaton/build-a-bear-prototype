@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Tile : MonoBehaviour
+public class Tile : PlushButton
 {
     public int x;
     public int y;
@@ -25,12 +25,12 @@ public class Tile : MonoBehaviour
 
     public Button button;
 
-    public void ReplaceItem()
-    {
-        if (Board.Instance != null)
-        {
-            Board.Instance.ReplaceItemAt(this);
-        }
-    }
+    //public void ReplaceItem()
+    //{
+    //    if (Board.Instance != null)
+    //    {
+    //        Board.Instance.ReplaceItemAt(this);
+    //    }
+    //}
 
 }

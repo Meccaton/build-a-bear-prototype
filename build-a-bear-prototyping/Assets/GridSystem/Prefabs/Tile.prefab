@@ -146,6 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cbd48bafb98474ba2278bce1637c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  row: 0
+  col: 0
+  plushType: 
+  crossInput: {fileID: 6782905273873922714, guid: 4e4f70d324ca1e348be4d8192397b6fe, type: 3}
   x: 0
   y: 0
   partImage: {fileID: 3942358315302427998}

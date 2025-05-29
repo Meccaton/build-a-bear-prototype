@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class CrossCheck : MonoBehaviour
 {
-    public PlushButton[,] grid;
+    public Tile[,] grid;
 
     void Start()
     {
-        BuildGrid();
+        grid = Board.Instance.Tiles;
     }
 
     public int TryCrossLine(bool isRow, int index)
@@ -46,28 +46,28 @@ public class CrossCheck : MonoBehaviour
     }
 
     // This is for while I dont have access to the grid set up 
-        void BuildGrid()
-    {
-        PlushButton[] plushes = FindObjectsOfType<PlushButton>();
+    //    void BuildGrid()
+    //{
+    //    PlushButton[] plushes = FindObjectsOfType<PlushButton>();
 
 
-        int maxRow = 4;
-        int maxCol = 4;
+    //    int maxRow = 4;
+    //    int maxCol = 4;
 
-        foreach (var plush in plushes)
-        {
-            if (plush.row > maxRow) maxRow = plush.row;
-            if (plush.col > maxCol) maxCol = plush.col;
-        }
+    //    foreach (var plush in plushes)
+    //    {
+    //        if (plush.row > maxRow) maxRow = plush.row;
+    //        if (plush.col > maxCol) maxCol = plush.col;
+    //    }
 
-        grid = new PlushButton[maxRow, maxCol];
+    //    grid = new PlushButton[maxRow, maxCol];
 
-        // Populate grid
-        foreach (var plush in plushes)
-        {
-            grid[plush.row, plush.col] = plush;
-        }
+    //    // Populate grid
+    //    foreach (var plush in plushes)
+    //    {
+    //        grid[plush.row, plush.col] = plush;
+    //    }
 
-        Debug.Log($"Grid built with size: {grid.GetLength(0)} rows x {grid.GetLength(1)} cols");
-    }
+    //    Debug.Log($"Grid built with size: {grid.GetLength(0)} rows x {grid.GetLength(1)} cols");
+    //}
 }

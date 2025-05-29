@@ -7,14 +7,14 @@ using UnityEngine;
 public class SwapManager : MonoBehaviour
 {
     public static SwapManager Instance;
-    private PlushButton firstSelected = null;
+    private Tile firstSelected = null;
 
     void Awake()
     {
         Instance = this;
     }
 
-    public void SelectPlush(PlushButton plush)
+    public void SelectPlush(Tile plush)
     {
         if (firstSelected == null)
         {
@@ -35,7 +35,7 @@ public class SwapManager : MonoBehaviour
         }
     }
 
-    void SwapPlush(PlushButton a, PlushButton b)
+    void SwapPlush(Tile a, Tile b)
     {
 
         // Swap RectTransform anchored positions
