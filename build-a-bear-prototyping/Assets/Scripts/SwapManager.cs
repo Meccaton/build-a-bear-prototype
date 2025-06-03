@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
     Free-swapping of any 2 tiles. 
@@ -47,42 +48,47 @@ public class SwapManager : MonoBehaviour
 
     void SwapPlush(Tile a, Tile b)
     {
-        
+
         Debug.Log($"Attempting swap: A = {a.name} @ index {a.transform.GetSiblingIndex()}, B = {b.name} @ index {b.transform.GetSiblingIndex()}");
-        // Swap Indices to chang visual pos. 
-        int indexA = a.transform.GetSiblingIndex();
-        int indexB = b.transform.GetSiblingIndex();
-        a.transform.SetSiblingIndex(indexB);
-        b.transform.SetSiblingIndex(indexA);
 
-        // Swap data 
-        Item tempItem = a.Item;
-        a.Item = b.Item;
-        b.Item = tempItem;
+        Transform parentA = a.transform.parent;
+        Transform parentB = b.transform.parent;
 
-        // Swap pos. 
-        Board.Instance.Tiles[a.x, a.y] = b;
-        Board.Instance.Tiles[b.x, b.y] = a;
-
-        // Swap co-ord
-        int tempX = a.x;
-        int tempY = a.y;
-        a.x = b.x;
-        a.y = b.y;
-        b.x = tempX;
-        b.y = tempY;
-
-        PlushButton buttonA = a.GetComponent<PlushButton>();
-        PlushButton buttonB = b.GetComponent<PlushButton>();
-        if(buttonA != null && buttonB != null)
+        // Swap parents if necessary (vertical swap)
+        if (parentA != parentB)
         {
-            int tempRow = buttonA.row;
-            int tempCol = buttonA.col;
-            buttonA.row = buttonB.row;
-            buttonA.col = buttonB.col;
-            buttonB.row = tempRow;
-            buttonB.col = tempCol;
+            // Get sibling indices 
+            int indexA = a.transform.GetSiblingIndex();
+            int indexB = b.transform.GetSiblingIndex();
+
+            // Temp detach (prevent hierarchy conflicts)
+            a.transform.SetParent(null);
+            b.transform.SetParent(null);
+
+            // Swap parents
+            a.transform.SetParent(parentB);
+            b.transform.SetParent(parentA);
+
+            // Restore order in parent. 
+            a.transform.SetSiblingIndex(indexB);
+            b.transform.SetSiblingIndex(indexA);
+
         }
+        // Row swap
+        else
+        {
+            // Same row
+            int indexA = a.transform.GetSiblingIndex();
+            int indexB = b.transform.GetSiblingIndex();
+
+            a.transform.SetSiblingIndex(indexB);
+            b.transform.SetSiblingIndex(indexA);
+        }
+        // Force layout rebuild on both rows
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)parentA);
+        if (parentA != parentB)
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)parentB);
+
 
         Debug.Log($"Swapped tiles: ({a.x},{a.y}) <-> ({b.x},{b.y})");
     }
