@@ -8,7 +8,7 @@ public class CrossController : MonoBehaviour
     private bool? selectedIsRow = null; // null = no selection
     private int selectedIndex = -1;
 
-    // Call this from your UI or selection logic whenever player selects a line
+    // Call this from UI 
     public void SetSelectedLine(bool isRow, int index)
     {
         selectedIsRow = isRow;
@@ -19,12 +19,14 @@ public class CrossController : MonoBehaviour
 
     void Update()
     {
+
         // Wait for player to press X to cross the selected line
         if (Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log($"SelectedIsRow has value: {selectedIsRow.HasValue}, and SelectedIndex has value: {selectedIndex}");
             if (selectedIsRow.HasValue && selectedIndex >= 0)
             {
+                crossChecker.RebuildGridFromBoard();
                 int crossIndex = crossChecker.TryCrossLine(selectedIsRow.Value, selectedIndex);
                 if (crossIndex != -1)
                 {
@@ -59,17 +61,17 @@ public class CrossController : MonoBehaviour
 
     private void HighlightSelectedLine(bool isRow, int index)
     {
-        //TODO: add visualization for line selection
+        Debug.Log($"Highlighting {(isRow ? "row" : "column")} {index}");
     }
 
     private void RemoveHighlight()
     {
-        //TODO: remove visualization for line selection
+        Debug.Log("Removing highlight");
     }
 
     public string GetCurrentSelection()
     {
-        if ((selectedIsRow.HasValue) && selectedIndex >= 0)
+        if (selectedIsRow.HasValue && selectedIndex >= 0)
         {
             return $"{(selectedIsRow.Value ? "Row" : "Column")} {selectedIndex}";
         }

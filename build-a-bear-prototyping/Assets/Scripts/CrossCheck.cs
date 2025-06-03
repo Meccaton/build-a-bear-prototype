@@ -4,13 +4,9 @@ public class CrossCheck : MonoBehaviour
 {
     public Tile[,] grid;
 
-    void Start()
-    {
-        grid = Board.Instance.Tiles;
-    }
-
     public int TryCrossLine(bool isRow, int index)
     {
+        var grid = Board.Instance.Tiles;
         if (grid == null)
         {
             Debug.LogError("Grid is not assigned.");
@@ -32,7 +28,7 @@ public class CrossCheck : MonoBehaviour
                 if (grid[x, index] != null) count++;
             }
 
-            return count == 4 ? index : -1; 
+            return count == 4 ? index : -1;
         }
         else
         {
@@ -41,7 +37,7 @@ public class CrossCheck : MonoBehaviour
                 if (grid[index, y] != null) count++;
             }
 
-            return count == 4 ? width + index : -1; 
+            return count == 4 ? width + index : -1;
         }
     }
 
@@ -71,6 +67,11 @@ public class CrossCheck : MonoBehaviour
             }
             Debug.Log($"Crossed out column {index} and replaced with new tiles");
         }
+    }
+
+    public void RebuildGridFromBoard()
+    {
+        grid = Board.Instance.Tiles;
     }
 
     // This is for while I dont have access to the grid set up 

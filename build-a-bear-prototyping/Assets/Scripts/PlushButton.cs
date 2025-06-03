@@ -9,7 +9,15 @@ public class PlushButton : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Button>().onClick.AddListener(OnClick);
+        GetComponent<Button>().onClick.AddListener(() =>
+        {
+            Tile tile = GetComponent<Tile>();
+            if (tile != null)
+            {
+                SwapManager.Instance.SelectPlush(tile);
+                crossInput.SetSelectedLine(true, row); // default to row
+            }
+        });
     }
     
     public void Init(int r, int c)//, string type)
