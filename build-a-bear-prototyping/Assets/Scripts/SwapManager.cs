@@ -47,21 +47,24 @@ public class SwapManager : MonoBehaviour
 
     void SwapPlush(Tile a, Tile b)
     {
+        
+        Debug.Log($"Attempting swap: A = {a.name} @ index {a.transform.GetSiblingIndex()}, B = {b.name} @ index {b.transform.GetSiblingIndex()}");
+        // Swap Indices to chang visual pos. 
+        int indexA = a.transform.GetSiblingIndex();
+        int indexB = b.transform.GetSiblingIndex();
+        a.transform.SetSiblingIndex(indexB);
+        b.transform.SetSiblingIndex(indexA);
 
-        // Swap RectTransform anchored positions
-        RectTransform rectA = a.GetComponent<RectTransform>();
-        RectTransform rectB = b.GetComponent<RectTransform>();
-
-        Vector2 tempPos = rectA.anchoredPosition;
-        rectA.anchoredPosition = rectB.anchoredPosition;
-        rectB.anchoredPosition = tempPos;
-
+        // Swap data 
         Item tempItem = a.Item;
         a.Item = b.Item;
         b.Item = tempItem;
+
+        // Swap pos. 
         Board.Instance.Tiles[a.x, a.y] = b;
         Board.Instance.Tiles[b.x, b.y] = a;
 
+        // Swap co-ord
         int tempX = a.x;
         int tempY = a.y;
         a.x = b.x;
